@@ -17,6 +17,17 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `netfalse` DEFAULT CHARACTER SET utf8 ;
 USE `netfalse` ;
 
+
+-- -----------------------------------------------------
+-- Table `netfalse`.`role`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `netfalse`.`role` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `netfalse`.`user`
 -- -----------------------------------------------------
@@ -24,17 +35,13 @@ CREATE TABLE IF NOT EXISTS `netfalse`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `mail` VARCHAR(255) NULL,
   `mdp` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `netfalse`.`categorie`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `netfalse`.`categorie` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
+  `role_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_user_role`
+    FOREIGN KEY (`role_id`)
+    REFERENCES `netfalse`.`role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -44,17 +51,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `netfalse`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titre` VARCHAR(255) NULL,
+  `categorie` VARCHAR(255) NULL,
   `description` VARCHAR(255) NULL,
   `duration` INT NULL,
   `file` VARCHAR(255) NULL,
-  `categorie_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  -- INDEX `fk_item_categorie1_idx` (`categorie_id` ASC) VISIBLE,
-  CONSTRAINT `fk_item_categorie`
-    FOREIGN KEY (`categorie_id`)
-    REFERENCES `netfalse`.`categorie` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
