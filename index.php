@@ -1,36 +1,53 @@
+<?php
+
+include 'model/config.php';
+include 'model/connexionDb.php';
+include 'model/items.php';
+include 'controller/controllerItems.php';
+include 'controller/controllerGet.php';
+
+?>
+
+
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>netfalse</title>
-</head>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    </head>
 <body>
-    <form method="POST">
+    <h2>Ajouter une image</h2>
+    <form method="POST" enctype="multipart/form-data">
 
-    <label>Titre:</label><br>
-    <input type="text" name="titre"><br>
+        <label for="file">Titre</label>
+        <input type="text" name="titre"><br>
 
-    <label>Déscription:</label><br>
-    <textarea name="description">
-            It was a dark and stormy night...
-    </textarea><br>
+        <input type="radio" name="categorie" value="action">Action<br>
+        <input type="radio" name="categorie" value="histoire">Histoire<br>
+        <input type="radio" name="categorie" value="syfy">Syfy<br>
+        <input type="radio" name="categorie" value="syfy">Animé<br>
 
-    <label>Duration:</label><br>
-    <input type="text" name="duration"><br>
+        <label for="file">duration</label>
+        <input type="number" name="duration"><br>
 
-    <label for="file">Fichier</label>
-    <input type="file" name="file"><br>
+        <label for="file">description</label>
+        <textarea name="description">Description ...</textarea><br>
 
-    <input type="checkbox" id="categorie1" name="categorie1" value="Action">
-    <label for="categorie1">Action</label><br>
-    <input type="checkbox" id="categorie2" name="categorie2" value="Histoire">
-    <label for="categorie2">Histoire</label><br>
-    <input type="checkbox" id="categorie3" name="categorie3" value="Animé">
-    <label for="categorie3">Animé</label><br>
-    <input type="checkbox" id="categorie4" name="categorie4" value="Syfy">
-    <label for="categorie4">Syfy</label>
+        <label for="file">Fichier</label>
+        <input type="file" name="file"><br><br>
+
+        <button type="submit" name="submit">Enregistrer</button>
     </form>
+    <h2>Mes images</h2>
+    <?php 
+
+
+        if(!empty($item)){
+            foreach($item as $classItem ){
+                echo $classItem -> titre.$classItem -> categorie.$classItem -> duration.$classItem -> description."<img src='./upload/".$classItem -> nom."' width='150px' ><br>";
+            }
+        }
+    ?>
 </body>
 </html>
