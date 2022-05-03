@@ -23,7 +23,7 @@ USE `netfalse` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `netfalse`.`role` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(255) NULL,
+  `nom` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -33,8 +33,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `netfalse`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `mail` VARCHAR(255) NULL,
-  `mdp` VARCHAR(255) NULL,
+  `mail` VARCHAR(255) NOT NULL,
+  `mdp` VARCHAR(255) NOT NULL,
   `role_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_role`
@@ -50,11 +50,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `netfalse`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `titre` VARCHAR(255) NULL,
-  `categorie` VARCHAR(255) NULL,
-  `description` VARCHAR(255) NULL,
-  `duration` INT NULL,
-  `file` VARCHAR(255) NULL,
+  `titre` VARCHAR(255) NOT NULL,
+  `categorie` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
+  `duration` INT NOT NULL,
+  `file` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -64,7 +64,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `netfalse`.`note` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `note` INT NULL,
+  `note` INT NOT NULL,
   `user_id` INT NOT NULL,
   `item_id` INT NOT NULL,
   PRIMARY KEY (`id`),
