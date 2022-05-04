@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `netfalse`.`item` (
   `categorie` VARCHAR(255) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
   `duration` INT NOT NULL,
-  `file` VARCHAR(255) NOT NULL,
+  `nom` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

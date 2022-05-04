@@ -3,8 +3,7 @@
 include 'model/config.php';
 include 'model/connexionDb.php';
 include 'model/items.php';
-include 'controller/controllerItems.php';
-include 'controller/controllerGet.php';
+
 
 ?>
 
@@ -16,38 +15,37 @@ include 'controller/controllerGet.php';
         <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     </head>
-<body>
-    <h2>Ajouter une image</h2>
-    <form method="POST" enctype="multipart/form-data">
+    <body>
 
-        <label for="file">Titre</label>
-        <input type="text" name="titre"><br>
-
-        <input type="radio" name="categorie" value="action">Action<br>
-        <input type="radio" name="categorie" value="histoire">Histoire<br>
-        <input type="radio" name="categorie" value="syfy">Syfy<br>
-        <input type="radio" name="categorie" value="syfy">Animé<br>
-
-        <label for="file">duration</label>
-        <input type="number" name="duration"><br>
-
-        <label for="file">description</label>
-        <textarea name="description">Description ...</textarea><br>
-
-        <label for="file">Fichier</label>
-        <input type="file" name="file"><br><br>
-
-        <button type="submit" name="submit">Enregistrer</button>
-    </form>
-    <h2>Mes images</h2>
-    <?php 
+        <nav>
+            <div>
+                <a href="index.php?login">Login</a>
+                <a href="index.php?spaceAdmin">Espace admin</a>
+                <a href="index.php?viewCategorie">categorie</a>
+            </div>
+        </nav>
 
 
-        if(!empty($item)){
-            foreach($item as $classItem ){
-                echo $classItem -> titre.$classItem -> categorie.$classItem -> duration.$classItem -> description."<img src='./upload/".$classItem -> nom."' width='150px' ><br>";
-            }
+    <?php
+        if (isset($_GET['spaceAdmin'])) {
+        
+            include 'view/spaceAdmin.php';
+        } else if (isset($_GET['login'])){
+            include 'view/login.php';
+        } else if (isset($_GET['spaceAdmin'])){
+            include 'view/spaceAdmin.php';
+        } else if (isset($_GET['viewCategorie'])){
+            include 'view/viewCategorie.php';
+        } else if (isset($_GET['listItems'])){
+            include 'controller/controllerItems.php';
+            include 'controller/controllerGet.php';
+            include 'view/listItems.php';
+        } else if (isset($_GET['listUsers'])){
+            include 'view/listUsers.php';
+            
+        } else {
+            include 'view/home.php';
         }
     ?>
-</body>
+    </body>
 </html>
