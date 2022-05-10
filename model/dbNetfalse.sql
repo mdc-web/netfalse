@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `netfalse`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `mail` VARCHAR(255) NOT NULL,
   `mdp` VARCHAR(255) NOT NULL,
-  `role_id` INT NOT NULL,
+  `id_role` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_user_role`
-    FOREIGN KEY (`role_id`)
+    FOREIGN KEY (`id_role`)
     REFERENCES `netfalse`.`role` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

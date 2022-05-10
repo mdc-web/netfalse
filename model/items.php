@@ -38,17 +38,53 @@ class item extends database
     public function getItemById()
     {
         $query = 'SELECT * FROM `item` WHERE `id`=:id ;';
-        $find = $this->db->prepare($query);
-        $find->bindValue(':id', $this->id, PDO::PARAM_INT);
-        if ($find->execute()) {
-            return $find->fetch(PDO::FETCH_OBJ);
-        }
+        $item = $this->db->prepare($query);
+        $item->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $item->execute();
+        return $item->fetch(PDO::FETCH_OBJ);
+    }
+
+
+    public function getItemByCatAct()
+    {
+        $query = 'SELECT * FROM item WHERE categorie = "action" ;';
+        $item = $this->db->prepare($query);
+        $item->execute();
+        return $item->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+
+    public function getItemByCatHist()
+    {
+        $query = 'SELECT * FROM item WHERE categorie = "histoire" ;';
+        $item = $this->db->prepare($query);
+        $item->execute();
+        return $item->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+
+    public function getItemByCatSyfy()
+    {
+        $query = 'SELECT * FROM item WHERE categorie = "syfy" ;';
+        $item = $this->db->prepare($query);
+        $item->execute();
+        return $item->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+
+    public function getItemByCatAnime()
+    {
+        $query = 'SELECT * FROM item WHERE categorie = "anime" ;';
+        $item = $this->db->prepare($query);
+        $item->execute();
+        return $item->fetchAll(PDO::FETCH_OBJ);
+        
     }
 
 
     public function updateItem()
     {
-        $req = 'UPDATE `item` SET `titre`=:tire, `categorie`=:categorie, `duration`=:duration, `description`=:description, `nom`=:nom WHERE id=:id';
+        $req = 'UPDATE `item` SET `titre`=:titre, `categorie`=:categorie, `duration`=:duration, `description`=:description, `nom`=:nom WHERE id=:id';
         $item = $this->db->prepare($req);
         $item->bindValue(':titre', $this->titre, PDO::PARAM_STR);
         $item->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
@@ -62,7 +98,7 @@ class item extends database
 
     public function deleteItem()
     {
-        $query = 'DELETE FROM `items` WHERE `id`=:id;';
+        $query = 'DELETE FROM `item` WHERE `id`=:id;';
         $item = $this->db->prepare($query);
         $item->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $item->execute();

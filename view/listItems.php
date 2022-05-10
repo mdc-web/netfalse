@@ -8,7 +8,7 @@
         <input type="radio" name="categorie" value="action">Action<br>
         <input type="radio" name="categorie" value="histoire">Histoire<br>
         <input type="radio" name="categorie" value="syfy">Syfy<br>
-        <input type="radio" name="categorie" value="syfy">Animé<br>
+        <input type="radio" name="categorie" value="anime">Animé<br>
 
         <label for="file">duration</label>
         <input type="number" name="duration"><br>
@@ -28,14 +28,12 @@
         
         if(!empty($item)){
             foreach($item as $classItem ){
-
-                //echo $classItem -> titre.$classItem -> categorie.$classItem -> duration.$classItem -> description."<img src='./upload/".$classItem -> nom."' width='150px' ><br>";
     ?>
                 <?= $classItem->titre ?>
                 <?= $classItem->categorie ?>
                 <?= $classItem->duration ?>
                 <?= $classItem->description ?>
-                <img src="./upload/<?= $classItem->nom ?>" width="150px" >
+                <a href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>" width="150px" ></a>
 
 
            <?php }

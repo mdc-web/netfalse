@@ -20,7 +20,7 @@ include 'model/items.php';
 
         <nav>
             <div>
-                <a href="index.php?view/home">Acceuil</a>
+                <a href="index.php?view/home">Accueil</a>
                 <a href="index.php?viewCategorie">categorie</a>
                 <a href="index.php?inscription">inscription</a>
                 <ul>
@@ -46,6 +46,7 @@ include 'model/items.php';
 
     <?php
         if (isset($_GET['home'])) {
+            include 'controller/controllerGet.php';
             include 'view/home.php';
         } else if (isset($_GET['spaceAdmin'])) {
             include 'view/spaceAdmin.php';
@@ -57,8 +58,6 @@ include 'model/items.php';
             include 'view/inscription.php';
         } else if (isset($_GET['deconnexion'])){
             include 'controller/deconnexion.php';
-        } else if (isset($_GET['viewCategorie'])){
-            include 'view/viewCategorie.php';
         } else if (isset($_GET['listItems'])){
             include 'controller/controllerItems.php';
             include 'controller/controllerGet.php';
@@ -66,8 +65,14 @@ include 'model/items.php';
         } else if (isset($_GET['listUsers'])){
             include 'controller/getUser&del.php';
             include 'view/listUsers.php';
-            
+        } else if (isset($_GET['viewCategorie'])){
+            include 'controller/controllerGet.php';
+            include 'view/viewCategorie.php';
+        } else if (isset($_GET['viewItems'])){
+            include 'controller/controllerGet.php';
+            include 'view/viewItems.php';
         } else {
+            include 'controller/controllerGet.php';
             include 'view/home.php';
         }
     ?>
