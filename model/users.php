@@ -47,6 +47,15 @@ class user extends database
         $find->execute();
         return $find->fetch(PDO::FETCH_OBJ); 
     }
+
+    public function updateUser()
+    {
+        $req = 'UPDATE `user` SET `mail`=:mail WHERE id=:id';
+        $user = $this->db->prepare($req);
+        $user->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $user->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $user->execute();
+    }
   
     public function session(){
         $garderSession = 'SELECT user.id , mail, mdp, nom FROM `user` INNER JOIN role ON user.id_role = role.id WHERE `mail` = :mail';

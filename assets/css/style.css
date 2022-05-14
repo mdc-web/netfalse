@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    background-color: #141414;
+    color: #F3F3F3;
+}
+
+*::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+  
+*::-webkit-scrollbar-track {
+    background: #141414;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #F3F3F3;
+    border-radius: 20px;
+    border: 3px solid #141414;
+}
+
+/******GLOBAL******/
+a{
+    text-decoration: none;
+    color: #F3F3F3;
+}
+
+h1{
+    margin: 20px;
+}
+
+h2{
+    margin: 20px;
+}
+
+
+/******NAVBAR******/
+
+nav .left a{
+    margin: 40px 10px;
+}
+
+nav .left a:hover{
+    color: white;
+}
+
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    color: #F3F3F3;
+    padding: 0 25px;
+}
+
+nav .left{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .right{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .right a{
+    margin: 40px 10px;
+}
+
+.fas{
+    margin-top: 25px;
+}
+
+/******SECTION HOME/CATEGORIE*****/
+.containerProduct{
+    display: flex;
+    text-align: center;
+    margin: 30px;
+    overflow-x: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+
+.img{
+    width: 250px;
+}
+
+.img:hover{
+    transform: scale(1.05);
+}
+
+.description{
+    width: 250px;
+}
+
+/*****SECTION VIEW ITEM******/
+
+.containerViewItem{
+    display: flex;
+}
+
+
+.viewP{
+    margin: 20px;
+}
+
+/******FORM******/
+
+form {
+    margin-top: 20px;
+    background-color: #F3F3F3;
+    padding: 40px 60px;
+    border-radius: 10px;
+    min-width: 300px;
+    width: 80%;
+    margin: 100px auto;
+  }
+  form h1{
+    color: #545454;
+    text-align:center;
+  }
+  form .social-media{
+    margin-top: -10px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  form .social-media p{
+    padding: 5px;
+    width: 20px;
+    margin-left: 10px;
+    border-radius: 100%;
+    border: 1px solid #545454;
+    text-align: center;
+    cursor:pointer;
+    color: #545454;
+  }
+  form p.choose-email{
+    color: #686868;
+    text-align:center;
+  }
+  form .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+  form .inputs input[type='email'], input[type='password']{
+    padding: 15px;
+    border: solid #878787;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    outline:none;
+    margin-bottom: 15px;
+  }
+  form p.inscription{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #878787;
+  }
+  form p.inscription span{
+    color: red;
+  }
+  form button{
+    padding: 15px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #f2f2f2;
+    background-color: red;
+    outline:none;
+    cursor:pointer;
+  }
+
+/******FOOTER******/
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #F3F3F3;
+    background-color: #686868;
+  }
+
+
+

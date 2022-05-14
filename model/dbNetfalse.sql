@@ -71,12 +71,12 @@ CREATE TABLE IF NOT EXISTS `netfalse`.`note` (
   CONSTRAINT `fk_note_user`
     FOREIGN KEY (`user_id`)
     REFERENCES `netfalse`.`user` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_note_item`
     FOREIGN KEY (`item_id`)
     REFERENCES `netfalse`.`item` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

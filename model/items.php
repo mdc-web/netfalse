@@ -103,4 +103,22 @@ class item extends database
         $item->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $item->execute();
     }
+
+    public function getRandItem() 
+    {
+        $query = 'SELECT * FROM `item` ORDER BY RAND();';
+        $item = $this->db->query($query);
+        return $item->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+/*
+    public function numberPage(){
+        $req = 'SELECT COUNT(id)/4 AS numberPage FROM item;';
+        $item = $this->db->prepare($req);
+        if($item->execute()){
+        return $item->fetch(PDO::FETCH_OBJ);
+    }
+    }
+    */
 }

@@ -9,8 +9,8 @@
   </thead>
   <?php
   //var_dump($user);
-  if (!empty($user)) {
-    foreach ($user as $classUser) {
+  if (!empty($listUser)) {
+    foreach ($listUser as $classUser) {
 
 
   ?>
@@ -20,7 +20,7 @@
           <td><?= $classUser->mail ?></td>
           <td>
             <form method="POST">
-              <button type="submit" name="submitDelet" value="<?= $classUser->id ?>">supprimer</button>
+              <button type="submit" name="submitDeletByAdmin" value="<?= $classUser->id ?>">supprimer</button>
             </form>
           </td>
         </tr>

@@ -22,8 +22,6 @@ if (isset($_POST['submit'])) {
         $user->mail = $mail;
         $user->mdp = $mdp;
         $user->insertUser();
-        //header('location:index.php?connexionAdmin');
-        //var_dump($user);
+        header('location:index.php?connexion');
     }
 }
-//$user->getUser();

@@ -3,6 +3,7 @@
 $classItem = new item();
 
 $item = $classItem->getAllItem();
+$itemR = $classItem->getRandItem();
 
 
 $classCategorie = new item();
@@ -78,9 +79,9 @@ if(isset($_POST['submitModif'])){
     header('location:index.php?listItems');//redirection
     exit();
 
-} else if(isset($_POST['submitDelet'])) { //idem pour le btn submit delet
+} 
+if(isset($_POST['submitDelet'])) { //idem pour le btn submit delet
     $classItem->id = $_POST['submitDelet'];
     $classItem->deleteItem();
     header('location: index.php?listItems');
 }
-

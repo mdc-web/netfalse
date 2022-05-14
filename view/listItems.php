@@ -22,23 +22,30 @@
         <button type="submit" name="submit">Enregistrer</button>
     </form>
     <h2>Serie</h2>
-
+    
+    <div class="containerProduct">
     <?php 
 
         
         if(!empty($item)){
             foreach($item as $classItem ){
     ?>
-                <?= $classItem->titre ?>
-                <?= $classItem->categorie ?>
-                <?= $classItem->duration ?>
-                <?= $classItem->description ?>
-                <a href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>" width="150px" ></a>
 
+            <div class="product">
+
+                <div class="description">
+                    <?= $classItem->titre ?><br>
+                    <?= $classItem->categorie ?><br>
+                </div>
+                <div class="img">
+                    <a href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>" width="150px" ></a>
+                </div>
+            </div>
 
            <?php }
-        }
+        } ?>
 
-    ?>
+
+    </div>
 </body>
 </html>
