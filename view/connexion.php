@@ -1,4 +1,4 @@
-<form method="POST">
+<form class="formUser" method="POST">
      
     <h1>Se connecter</h1>
     <div class="social-media">
@@ -16,6 +16,10 @@
     
     <p class="inscription">Je n'ai pas de <span>compte</span>. Je m'en <a href="index.php?inscription"><span>crée</span></a> un.</p>
     <div align="center">
+        <?php 
+          if (isset($test)){?>
+             <p class="ecoForm"> <?= $test; ?> </p>
+        <?php  } ?>
       <button type="submit" name="submit">Se connecter</button>
     </div>
   </form>

@@ -1,4 +1,4 @@
-<form method="POST">
+<form class="formUser" method="POST" enctype="multipart/form-data">
     <h1>Créer un compte</h1>
     <div class="social-media">
       <p><i class="fab fa-google"></i></p>
@@ -10,10 +10,12 @@
     
     <div class="inputs">
       <input type="email" placeholder="Email" name="mail" />
+      <input type="text" placeholder="pseudo" name="pseudo" />
       <input type="password" placeholder="Mot de passe" name="mdp">
+      <input type="file" name="fileAvatar"><br>
     </div>
     
     <div align="center">
-      <button type="submit" name="submit">Se connecter</button>
+      <button type="submit" name="submit">créer compte</button>
     </div>
   </form>

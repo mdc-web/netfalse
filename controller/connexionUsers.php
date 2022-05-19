@@ -25,10 +25,11 @@
                     $_SESSION['id']= $verifConnexion->id;
                     header('location: index.php?home');
                 }else {
-                    echo 'mot de passe ou adresse mail incorrect';
+                    echo 'mot de passe ou adresse email incorrect';
                 }
             }else {
-                echo 'pas bon';
+                $test = 'mot de passe ou adresse email incorrect';
+                
             }         
          }
     }

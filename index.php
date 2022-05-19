@@ -11,35 +11,42 @@ include 'model/note.php';
 
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
     <body>
 <!------navbar------>
+
         <nav>
             <div class="left">
                 <img src="./assets/media/logoNetfalse (300 × 100 px).svg">
                 <a href="index.php?view/home">Accueil</a>
                 <a href="index.php?viewCategorie">categorie</a>
-                <a href="index.php?inscription">inscription</a>
+                <p><i class="fas fa-search"></i></p>
+                
+
+
                 
             </div>
             <div class="right">
-                <p><i class="fas fa-search"></i></p>
-                    <?php
+                
+                
+                <?php if (empty($_SESSION)) { ?>
+                    <a href="index.php?inscription">inscription</a>
+                <?php }
                         if (isset($_SESSION['role']) && $_SESSION['role'] === 'membre') { ?>
-                                <a href="index.php?spaceUsers">Mon compte</a>
-                                <a href="index.php?deconnexion" name="deco">deconnexion</a>
-                        <?php  } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
-                            <div class="navAdmin">
-                                <a href="index.php?spaceAdmin">espace admin</a>
-                                <a href="index.php?deconnexion" name="deco">deconnexion</a>
-                            </div>
-                        <?php } else { ?>
-                                <a href="index.php?connexion">connexion</a>
+                            <a href="index.php?spaceUsers">Mon compte</a>
+                            <a href="index.php?deconnexion" name="deco">deconnexion</a>
+                <?php  }else if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') { ?>
+                            <a href="index.php?spaceAdmin">espace admin</a>
+                            <a href="index.php?deconnexion" name="deco">deconnexion</a>
+                <?php } else { ?>
+                            <a href="index.php?connexion">connexion</a>
                     <?php } ?>
             </div>    
         </nav>
@@ -60,7 +67,7 @@ include 'model/note.php';
             include 'controller/controllerUsers.php';
             include 'view/inscription.php';
         }else if (isset($_GET['spaceUsers'])){
-            include 'controller/controllerUsers.php';
+           
             include 'controller/getUser&del.php';
             include 'view/spaceUsers.php';
         } else if (isset($_GET['deconnexion'])){
@@ -97,5 +104,8 @@ include 'model/note.php';
     </footer>
     <script src="https://kit.fontawesome.com/fa7f4a1136.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/fixe.js"></script>
     </body>
 </html>

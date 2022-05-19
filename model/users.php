@@ -3,7 +3,8 @@ class user extends database
 {
     public $mail;
     public $mdp;
-    
+    public $pseudo;
+    public $avatar;
 
 
 
@@ -18,10 +19,12 @@ class user extends database
 
     public function insertUser()
     {
-        $requete = 'INSERT INTO `user`(`mail`, `mdp`) VALUES (:mail , :mdp)';
+        $requete = 'INSERT INTO `user`(`mail`, `mdp`, `pseudo`, `avatar`) VALUES (:mail , :mdp, :pseudo, :avatar)';
         $insert = $this->db->prepare($requete);
         $insert->bindValue(':mail', $this->mail, PDO::PARAM_STR);  // string(mot/phrase)
         $insert->bindValue(':mdp', $this->mdp, PDO::PARAM_STR);
+        $insert->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $insert->bindValue(':avatar', $this->avatar, PDO::PARAM_STR);
         return $insert->execute();
     }
 
@@ -50,9 +53,11 @@ class user extends database
 
     public function updateUser()
     {
-        $req = 'UPDATE `user` SET `mail`=:mail WHERE id=:id';
+        $req = 'UPDATE `user` SET `mail`=:mail, `pseudo`=:pseudo,`avatar`=:avatar WHERE id=:id';
         $user = $this->db->prepare($req);
         $user->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $user->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $user->bindValue(':avatar', $this->avatar, PDO::PARAM_STR);
         $user->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $user->execute();
     }

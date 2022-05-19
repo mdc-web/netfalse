@@ -32,13 +32,24 @@ a{
 }
 
 h1{
-    margin: 20px;
+    margin: 30px 40px;
+    color: #F3F3F3;
 }
 
 h2{
-    margin: 20px;
+    margin: 30px 40px;
 }
 
+button{
+    padding: 15px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #f2f2f2;
+    background-color: red;
+    outline:none;
+    cursor:pointer;
+  }
 
 /******NAVBAR******/
 
@@ -76,15 +87,52 @@ nav .right a{
 .fas{
     margin-top: 25px;
 }
+/******SLIDER******/
+
+.swiper {
+    width: 80%;
+    height: 400px;
+    margin: 50px auto;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #141414;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    transform: scale(1.05);
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color: red!IMPORTANT;
+}
+
 
 /******SECTION HOME/CATEGORIE*****/
 .containerProduct{
     display: flex;
     text-align: center;
     margin: 30px;
-    overflow-x: scroll;
-    scrollbar-color: rebeccapurple green;
-    scrollbar-width: thin;
 }
 
 .img{
@@ -99,12 +147,60 @@ nav .right a{
     width: 250px;
 }
 
+.containerListItem{
+  display: flex;
+    text-align: center;
+    margin: 30px;
+    overflow-x: auto;
+}
+
+
+
+/*****SECTION VIEW SPASE USER******/
+
+.containerViewUser{
+    margin: 50px auto;
+    justify-content: center;
+    display: flex;
+    color: #545454;
+}
+
+.titleSpaceUser{
+    text-align: center;
+}
+
+.avatar{
+    border-radius: 10px 0px 0px 10px;
+}
+
+.vieuwDescUser{
+    background-image:
+    linear-gradient(#DEDFE3 2%, #AEB3B9 95%),
+    radial-gradient(33% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+    background-blend-mode: screen;
+    border-radius: 0px 10px 10px 0px;
+}
+
 /*****SECTION VIEW ITEM******/
 
 .containerViewItem{
     display: flex;
+    width: 80%;
+    margin: 100px auto;
 }
 
+.viewDesc{
+    border-radius: 0px 10px 10px 0px;
+    background-image:
+    linear-gradient(#DEDFE3 2%, #AEB3B9 95%),
+    radial-gradient(33% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+    color: #545454;
+}
+
+
+.viewImg{
+    border-radius: 10px 0px 0px 10px;
+}
 
 .viewP{
     margin: 20px;
@@ -112,9 +208,12 @@ nav .right a{
 
 /******FORM******/
 
-form {
+.formUser{
     margin-top: 20px;
-    background-color: #F3F3F3;
+    background-image:
+    linear-gradient(#DEDFE3 2%, #AEB3B9 95%),
+    radial-gradient(33% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+    background-blend-mode: screen;
     padding: 40px 60px;
     border-radius: 10px;
     min-width: 300px;
@@ -149,7 +248,7 @@ form {
     display: flex;
     flex-direction: column;
   }
-  form .inputs input[type='email'], input[type='password']{
+  form .inputs input[type='email'], input[type='password'], input[type='text'], input[type='radio'], input[type='number'], input[type='file'], input[type='textarea']{
     padding: 15px;
     border: solid #878787;
     border-radius: 5px;
@@ -176,6 +275,35 @@ form {
     cursor:pointer;
   }
 
+  .ecoForm{
+    color: #545454;
+    font-weight: bold;
+  }
+
+
+  .formDelUser{
+    background-color: red!IMPORTANT;
+  }
+
+
+  /*****SPACE ADMIN******/
+
+/****LIST USERS*****/
+
+table {
+  margin: 0px auto;
+ }
+
+.titleListUsers{
+  text-align: center;
+  }
+
+  /****LIST ITEM***/
+
+  .titleListItem{
+    text-align: center;
+  }
+
 /******FOOTER******/
 
 footer {
@@ -184,6 +312,16 @@ footer {
     color: #F3F3F3;
     background-color: #686868;
   }
+
+
+textarea
+{
+ resize : vertical;
+ height: 100px;
+ border: solid 3px #878787;
+}
+
+
 
 
 

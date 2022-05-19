@@ -45,7 +45,6 @@ if (isset($_POST['submit'])) {
         }
     } else {
             $formError['file'] = "fichier non validée!";
-           var_dump($_POST);
 
 
     } if(empty($formError)){

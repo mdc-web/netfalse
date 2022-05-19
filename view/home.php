@@ -1,30 +1,31 @@
 <!------section by netfalse------>
+
+
 <h1>Selection By Netfalse</h1>
 
-<div class="containerProduct">
-    <?php 
+<!------SLIDER------>
 
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+<?php
+    if(!empty($itemR)){
+                foreach($itemR as $classItem ){
+        ?>
+            
+                    <div class="swiper-slide"><a class="imgL" href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>"></a></div>
         
-        if(!empty($itemR)){
-            foreach($itemR as $classItem ){
-    ?>
-
-            <div class="product">
-
-                <div class="description">
-                    <?= $classItem->titre ?><br>
-                    <?= $classItem->categorie ?><br>
-                </div>
-                <div class="img">
-                    <a class="imgL" href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>" width="150px" ></a>
-                </div>
-            </div>
-
-           <?php }
-        } ?>
-
-
+                <?php } 
+   }  ?>
     </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+
+
+
+
+
     <!------section categorie------>
 <h1>categorie</h1>
 <h2>Action</h2>
@@ -39,7 +40,7 @@
             <div class="product">
 
                 <div class="description">
-                    <?= $classCategorie->titre ?><br>
+                    <strong><?= $classCategorie->titre ?></strong><br><br>
                     <?= $classCategorie->categorie ?><br>
                 </div>
                 <div class="img">
@@ -65,7 +66,7 @@
             <div class="product">
 
                 <div class="description">
-                    <?= $classCategorie->titre ?><br>
+                <strong><?= $classCategorie->titre ?><br><br></strong>
                     <?= $classCategorie->categorie ?><br>
                 </div>
                 <div class="img">
@@ -91,7 +92,7 @@
             <div class="product">
 
                 <div class="description">
-                    <?= $classCategorie->titre ?><br>
+                <strong><?= $classCategorie->titre ?><br><br></strong>
                     <?= $classCategorie->categorie ?><br>
                 </div>
                 <div class="img">
@@ -117,7 +118,7 @@
             <div class="product">
 
                 <div class="description">
-                    <?= $classCategorie->titre ?><br>
+                <strong><?= $classCategorie->titre ?><br><br></strong>
                     <?= $classCategorie->categorie ?><br>
                 </div>
                 <div class="img">

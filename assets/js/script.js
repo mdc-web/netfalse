@@ -1,6 +1,6 @@
 window.onload = () => {
     // On va chercher toutes les étoiles
-    const stars = document.querySelectorAll(".la-star");
+    const stars = document.querySelectorAll('[name="stars"]');
 
     // On va chercher l'input
     const note = document.querySelector("#note");
@@ -53,16 +53,5 @@ window.onload = () => {
             }
         }
     }
-
-    for(starV of stars){
-        if(starV.dataset.value > note){
-            starV.style.color = "black";
-            starV.classList.add("lar");
-            starV.classList.remove("las");
-        }else{
-            starV.style.color = "red";
-            starV.classList.add("las");
-            starV.classList.remove("lar");
-        }
-    }
 } 
+
