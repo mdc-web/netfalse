@@ -85,3 +85,13 @@ if(isset($_POST['submitDelet'])) { //idem pour le btn submit delet
     $classItem->deleteItem();
     header('location: index.php?listItems');
 }
+
+if (isset($_POST["btnrechercheArticleHome"]) AND $_POST["btnrechercheArticleHome"] == "btnrechercheArticle")
+{
+ $_POST["rechercheArticle"] = htmlspecialchars($_POST["rechercheArticle"]); //pour sécuriser le formulaire contre les failles html
+ $rechercheItem = $_POST["rechercheArticle"];
+ $rechercheItem = trim($rechercheItem); //pour supprimer les espaces dans la requête de l'internaute
+ $rechercheItem = strip_tags($rechercheItem); //pour supprimer les balises html dans la requête`
+ $searchV = $classItem->searchItem($rechercheItem);
+ //var_dump($fff);
+}

@@ -1,3 +1,20 @@
+<?php
+ if(isset($searchV) && !empty($searchV)){
+                    foreach($searchV as $searchItem) { ?>
+
+                <div class="product">
+
+                    <div class="titleListItem">
+                        <?= $searchItem->titre ?><br>
+                    </div>
+                    <div class="img">
+                        <a href="index.php?viewItems&idItem=<?= $searchItem->id ?>"><img src="./upload/<?= $searchItem->nom ?>" width="150px" ></a>
+                    </div>
+                </div>
+
+                <?php }
+                }else{ ?>
+
 <h1 class="titleSpaceUser"><?= $classUser->mail ?></h1>
 
 
@@ -8,9 +25,9 @@
     </div>
     
     <div class="vieuwDescUser">
-        <p class="viewP">Code utilisateur: <?= $classUser->id ?></p>
-        <p class="viewP">Pseudo: <?= $classUser->pseudo ?></p>
-        <p class="viewP">Adresse email: <?= $classUser->mail ?></p>
+        <p class="viewP"><strong>utilisateur:</strong> <?= $classUser->id ?></p>
+        <p class="viewP"><strong>Pseudo:</strong> <?= $classUser->pseudo ?></p>
+        <p class="viewP"><strong>Adresse email:</strong> <?= $classUser->mail ?></p>
     </div>
 </div>
 <?php
@@ -18,7 +35,7 @@
     if (isset($_SESSION['role']) && $_SESSION['role'] === 'membre'){
     ?> 
 
-    <form method="POST" enctype="multipart/form-data">
+    <form class="formUser"method="POST" enctype="multipart/form-data">
         <h1>Modifier mes infos</h1>
         <div class="inputs">
             <input type="email" value="<?= $classUser->mail?>" name="mail" />
@@ -34,4 +51,5 @@
 
     <?php
     }
+}
     ?>

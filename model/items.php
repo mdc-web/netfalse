@@ -6,6 +6,7 @@ class item extends database
     public $duration;
     public $description;
     public $nom;
+    public $id;
 
 
     public function __construct()
@@ -108,6 +109,14 @@ class item extends database
     {
         $query = 'SELECT * FROM `item` ORDER BY RAND();';
         $item = $this->db->query($query);
+        return $item->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+    public function searchItem($recherche){
+        $rechercheItem ='SELECT * FROM item WHERE titre LIKE ?';
+        $item = $this->db->prepare($rechercheItem);
+        $item->execute(array("%".$recherche."%"));
         return $item->fetchAll(PDO::FETCH_OBJ);
     }
 

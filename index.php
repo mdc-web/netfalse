@@ -28,11 +28,12 @@ include 'model/note.php';
                 <a href="index.php?view/home">Accueil</a>
                 <a href="index.php?viewCategorie">categorie</a>
                 <p><i class="fas fa-search"></i></p>
-                
-
-
-                
+                <form action="" method="post">
+                    <input class="inputSearch" type="search"  placeholder="Search" name="rechercheArticle" />
+                    <button class="buttonSearch" type="submit" name="btnrechercheArticleHome" value="btnrechercheArticle">search</button>
+                </form>
             </div>
+            
             <div class="right">
                 
                 
@@ -46,6 +47,7 @@ include 'model/note.php';
                             <a href="index.php?spaceAdmin">espace admin</a>
                             <a href="index.php?deconnexion" name="deco">deconnexion</a>
                 <?php } else { ?>
+                            <a href="index.php?inscription">inscription</a>
                             <a href="index.php?connexion">connexion</a>
                     <?php } ?>
             </div>    
@@ -56,19 +58,21 @@ include 'model/note.php';
         if (isset($_GET['home'])) {
             include 'controller/controllerGet.php';
             include 'controller/note.php';
-            include 'controller/page.php';
             include 'view/home.php';
         } else if (isset($_GET['spaceAdmin'])) {
+            include 'controller/controllerGet.php';
             include 'view/spaceAdmin.php';
         } else if (isset($_GET['connexion'])){
             include 'controller/connexionUsers.php';
+            include 'controller/controllerGet.php';
             include 'view/connexion.php';
         }else if (isset($_GET['inscription'])){
             include 'controller/controllerUsers.php';
+            include 'controller/controllerGet.php';
             include 'view/inscription.php';
         }else if (isset($_GET['spaceUsers'])){
-           
             include 'controller/getUser&del.php';
+            include 'controller/controllerGet.php';
             include 'view/spaceUsers.php';
         } else if (isset($_GET['deconnexion'])){
             include 'controller/deconnexion.php';
@@ -76,15 +80,14 @@ include 'model/note.php';
             include 'controller/controllerItems.php';
             include 'controller/controllerGet.php';
             include 'controller/note.php';
-            include 'controller/page.php';
             include 'view/listItems.php';
         } else if (isset($_GET['listUsers'])){
             include 'controller/getUser&del.php';
+            include 'controller/controllerGet.php';
             include 'view/listUsers.php';
         } else if (isset($_GET['viewCategorie'])){
             include 'controller/controllerGet.php';
             include 'controller/note.php';
-            include 'controller/page.php';
             include 'view/viewCategorie.php';
         } else if (isset($_GET['viewItems'])){
             include 'controller/controllerGet.php';
@@ -93,12 +96,11 @@ include 'model/note.php';
         } else {
             include 'controller/controllerGet.php';
             include 'controller/note.php';
-            include 'controller/page.php';
             include 'view/home.php';
         }
     ?>
 <!------footer------>
-    <footer>
+    <footer class="footer">
       <p>&copy 2022-2022 Netfalse, Inc.</p>
       <p>MDC web &copy 2022</p>
     </footer>

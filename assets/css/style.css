@@ -46,7 +46,22 @@ button{
     border:none;
     font-size: 15px;
     color: #f2f2f2;
-    background-color: red;
+    background: #333333; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #333333, #dd1818); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #333333, #dd1818);
+    outline:none;
+    cursor:pointer;
+  }
+
+  .buttonSearch{
+    padding: 5px 25px;
+    border-radius: 5px;
+    border:none;
+    font-size: 15px;
+    color: #f2f2f2;
+    background: #333333; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #333333, #dd1818); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #333333, #dd1818);
     outline:none;
     cursor:pointer;
   }
@@ -86,6 +101,10 @@ nav .right a{
 
 .fas{
     margin-top: 25px;
+}
+
+.inputSearch{
+  margin: 37px 10px;
 }
 /******SLIDER******/
 
@@ -148,7 +167,7 @@ nav .right a{
 }
 
 .containerListItem{
-  display: flex;
+    display: flex;
     text-align: center;
     margin: 30px;
     overflow-x: auto;
@@ -179,6 +198,9 @@ nav .right a{
     radial-gradient(33% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
     background-blend-mode: screen;
     border-radius: 0px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /*****SECTION VIEW ITEM******/
@@ -275,6 +297,16 @@ nav .right a{
     cursor:pointer;
   }
 
+textarea{
+    resize : vertical;
+    height: 100px;
+    order: solid 3px #878787;
+}
+
+  .radio{
+    margin: 0 auto;
+  }
+
   .ecoForm{
     color: #545454;
     font-weight: bold;
@@ -306,22 +338,10 @@ table {
 
 /******FOOTER******/
 
-footer {
-    padding: 20px;
+.footer{
     text-align: center;
     color: #F3F3F3;
     background-color: #686868;
+    padding:50px;
+    margin-top: 400px;
   }
-
-
-textarea
-{
- resize : vertical;
- height: 100px;
- border: solid 3px #878787;
-}
-
-
-
-
-

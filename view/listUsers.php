@@ -1,3 +1,19 @@
+<?php
+ if(isset($searchV) && !empty($searchV)){
+                    foreach($searchV as $searchItem) { ?>
+
+                <div class="product">
+
+                    <div class="titleListItem">
+                        <?= $searchItem->titre ?><br>
+                    </div>
+                    <div class="img">
+                        <a href="index.php?viewItems&idItem=<?= $searchItem->id ?>"><img src="./upload/<?= $searchItem->nom ?>" width="150px" ></a>
+                    </div>
+                </div>
+
+                <?php }
+                }else{ ?>
 
   <h1 class="titleListUsers">Liste Utilisateurs</h1>
   <table>
@@ -33,3 +49,5 @@
     }
     ?>
   </table>
+
+  <?php } ?>
