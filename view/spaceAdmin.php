@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION['id']) &&  $_SESSION['role'] === "admin" ){
  if(isset($searchV) && !empty($searchV)){
                     foreach($searchV as $searchItem) { ?>
 
@@ -22,5 +23,7 @@
         <a href="index.php?listUsers"><button>liste utilisateurs</button></a>
     </div>
 
-    <?php } ?>
+    <?php }}else{
+        echo"acces refuser";
+    }?>
 

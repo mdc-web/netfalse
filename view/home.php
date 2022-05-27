@@ -29,7 +29,9 @@
                 foreach($itemR as $classItem ){
         ?>
             
-                    <div class="swiper-slide"><a class="imgL" href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>"></a></div>
+                    <div class="swiper-slide">
+                        <a class="imgL" href="index.php?viewItems&idItem=<?= $classItem->id ?>"><img src="./upload/<?= $classItem->nom ?>"></a>
+                    </div>
         
                 <?php } 
    }  ?>
@@ -38,105 +40,87 @@
 </div>
 
     <!------section categorie------>
-<h1>categorie</h1>
-<h2>Action</h2>
-<div class="containerListItem">
-    <?php 
+<a href="index.php?viewCategorie"><h1>Categorie</h1></a>
+<h2><a href="index.php?action">Action</a></h2>
+<main class="grid-item main">
 
-        
-        if(!empty($action)){
-            foreach($action as $classCategorie ){
-    ?>
 
-            <div class="product">
-
-                <div class="description">
-                    <strong><?= $classCategorie->titre ?></strong><br><br>
-                </div>
-                <div class="img">
-                    <a href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
-                </div>
+    <div class="items">
+<?php 
+    if(!empty($action)){
+        foreach($action as $classCategorie ){
+    ?>      
+            <div class="item">
+                <p class="paraItem"><?= $classCategorie->titre ?></p>
+                <a class="lienItem" href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
             </div>
+          <?php }
+    } ?>
+    </div>
+      
+    
+</main>
 
-           <?php }
-        } ?>
+<h2><a href="index.php?histoire">histoire</a></h2>
+<main class="grid-item main">
 
 
-</div>
-
-<h2>Histoire</h2>
-<div class="containerListItem">
-    <?php 
-
-        
-        if(!empty($histoire)){
-            foreach($histoire as $classCategorie ){
+    <div class="items">
+<?php 
+    if(!empty($histoire)){
+        foreach($histoire as $classCategorie ){
     ?>
-
-            <div class="product">
-
-                <div class="description">
-                <strong><?= $classCategorie->titre ?><br><br></strong>
-                </div>
-                <div class="img">
-                    <a href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
-                </div>
+            <div class="item item1">
+                <p class="paraItem"><?= $classCategorie->titre ?></p>
+                <a class="lienItem" href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
             </div>
+    <?php }
+    } ?>
+    </div>
+      
+    
+</main>
 
-           <?php }
-        } ?>
+<h2><a href="index.php?syfy">syfy</a></h2>
+<main class="grid-item main">
 
 
-</div>
-
-<h2>Syfy</h2>
-<div class="containerListItem">
-    <?php 
-
-        
-        if(!empty($syfy)){
-            foreach($syfy as $classCategorie ){
+    <div class="items">
+<?php 
+    if(!empty($syfy)){
+        foreach($syfy as $classCategorie ){
     ?>
-
-            <div class="product">
-
-                <div class="description">
-                <strong><?= $classCategorie->titre ?><br><br></strong>
-                </div>
-                <div class="img">
-                    <a href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
-                </div>
+            <div class="item item1">
+                <p class="paraItem"><?= $classCategorie->titre ?></p>
+                <a class="lienItem" href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
             </div>
+    <?php }
+    } ?>
+    </div>
+      
+    
+</main>
 
-           <?php }
-        } ?>
+<h2><a href="index.php?anime">animé</a></h2>
+<main class="grid-item main">
 
 
-</div>
-
-<h2>Anime</h2>
-<div class="containerListItem">
-    <?php 
-
-        
-        if(!empty($anime)){
-            foreach($anime as $classCategorie ){
+    <div class="items">
+<?php 
+    if(!empty($anime)){
+        foreach($anime as $classCategorie ){
     ?>
-
-            <div class="product">
-
-                <div class="description">
-                <strong><?= $classCategorie->titre ?><br><br></strong>
-                </div>
-                <div class="img">
-                    <a href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
-                </div>
+            <div class="item item1">
+                <p class="paraItem"><?= $classCategorie->titre ?></p>
+                <a class="lienItem" href="index.php?viewItems&idItem=<?= $classCategorie->id ?>"><img src="./upload/<?= $classCategorie->nom ?>" width="150px" ></a>
             </div>
-
-           <?php }
-        } ?>
-
-
-</div>
+    <?php }
+    } ?>
+    </div>
+      
+    
+</main>
 
 <?php  } ?>
+
+

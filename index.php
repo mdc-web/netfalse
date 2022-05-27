@@ -37,9 +37,7 @@ include 'model/note.php';
             <div class="right">
                 
                 
-                <?php if (empty($_SESSION)) { ?>
-                    <a href="index.php?inscription">inscription</a>
-                <?php }
+                <?php 
                         if (isset($_SESSION['role']) && $_SESSION['role'] === 'membre') { ?>
                             <a href="index.php?spaceUsers">Mon compte</a>
                             <a href="index.php?deconnexion" name="deco">deconnexion</a>
@@ -93,6 +91,22 @@ include 'model/note.php';
             include 'controller/controllerGet.php';
             include 'controller/note.php';
             include 'view/viewItems.php';
+        }else if (isset($_GET['action'])){
+            include 'controller/controllerGet.php';
+            include 'controller/note.php';
+            include 'view/action.php';
+        }else if (isset($_GET['histoire'])){
+            include 'controller/controllerGet.php';
+            include 'controller/note.php';
+            include 'view/histoire.php';
+        }else if (isset($_GET['syfy'])){
+            include 'controller/controllerGet.php';
+            include 'controller/note.php';
+            include 'view/syfy.php';
+        }else if (isset($_GET['anime'])){
+            include 'controller/controllerGet.php';
+            include 'controller/note.php';
+            include 'view/anime.php';
         } else {
             include 'controller/controllerGet.php';
             include 'controller/note.php';
@@ -109,5 +123,7 @@ include 'model/note.php';
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/fixe.js"></script>
+    <script src="assets/js/scrollDiv.js"></script>
+    <script src="assets/js/scrollContainer.js"></script>
     </body>
 </html>

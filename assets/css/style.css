@@ -13,6 +13,7 @@ body{
 *::-webkit-scrollbar{
     width: 10px;
     height: 10px;
+
 }
   
 *::-webkit-scrollbar-track {
@@ -20,7 +21,7 @@ body{
 }
   
 *::-webkit-scrollbar-thumb {
-    background-color: #F3F3F3;
+    background-color: black;
     border-radius: 20px;
     border: 3px solid #141414;
 }
@@ -132,7 +133,6 @@ nav .right a{
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    transform: scale(1.05);
   }
 
   .swiper-slide img {
@@ -147,32 +147,84 @@ nav .right a{
 }
 
 
-/******SECTION HOME/CATEGORIE*****/
-.containerProduct{
-    display: flex;
+/******SECTION HOME*****/
+
+
+.main {
+  grid-area: main;
+  padding: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+
+
+.items {
+  position: relative;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  transition: all 0.2s;
+  transform: scale(0.98);
+  will-change: transform;
+  user-select: none;
+  cursor: pointer;
+  padding: 20px auto;
+}
+
+.items.active {
+  background: rgba(255, 255, 255, 0.07);
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1,1);
+}
+
+.item {
+  display: inline-block;
+  margin: auto 4em;
+  position: relative;
+	overflow: hidden;
+  text-decoration: none;
+  /* Accélération pour débug overflow */
+  transform: translate3d(0,0,0);
+}
+
+
+.item:hover{
+  transform: scale(1.15);
+}
+
+
+.lienItem {
+display: block;
+}
+
+.paraItem{
+  margin-bottom: 5px;
+}
+
+/*****SECIONT CATEGORIE*******/
+
+.containerCategorieGrid {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". ."
+    ". .";
     text-align: center;
-    margin: 30px;
 }
 
-.img{
-    width: 250px;
+.imgCategorie{
+  max-block-size: 250px;
+  border-radius: 10px;
 }
 
-.img:hover{
-    transform: scale(1.05);
+.imgCategorie:hover{
+  transform: scale(1.15);
 }
-
-.description{
-    width: 250px;
-}
-
-.containerListItem{
-    display: flex;
-    text-align: center;
-    margin: 30px;
-    overflow-x: auto;
-}
-
 
 
 /*****SECTION VIEW SPASE USER******/
@@ -226,6 +278,15 @@ nav .right a{
 
 .viewP{
     margin: 20px;
+}
+
+.stars{
+  margin-left: 20px;
+}
+
+.btnNote{
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
 /******FORM******/
@@ -345,3 +406,10 @@ table {
     padding:50px;
     margin-top: 400px;
   }
+
+  
+  
+
+
+
+

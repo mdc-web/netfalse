@@ -15,7 +15,7 @@
                 <?php }
                 }else{ ?>
 
-<div class="containerViewItem">
+    <div class="containerViewItem">
 
     <div>
         <img class="viewImg" src="./upload/<?= $itemId->nom ?>" width="350px" >
@@ -26,17 +26,17 @@
         <p class="viewP"><strong>Durée:</strong> <?= $itemId->duration ?>mn</p>
         <p class="viewP"><strong>description:</strong> <?= $itemId->description ?></p><br>
         <div class="stars" id="fixe">
-            <!-- <i class="lar la-star fixe"  value=""></i><i class="lar la-star" data-value="2" value="<?= $noteV->moyenne ?>"></i><i class="lar la-star" data-value=""></i><i class="lar la-star" data-value=""></i><i class="lar la-star" data-value=""></i> -->
-        </div>
-        <p class="viewP"><?= round($noteV->moyenne) ?></p>
+            
+        </div><br>
         <?php
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' || isset($_SESSION['role']) && $_SESSION['role'] === 'membre'){?>
+            <p class="viewP">Noter cette serie</p>
             <form method="POST">
                 <div class="stars">
                     <i class="lar la-star" name="stars" data-value="1"></i><i class="lar la-star" name="stars" data-value="2"></i><i class="lar la-star" name="stars" data-value="3"></i><i class="lar la-star" name="stars" data-value="4"></i><i class="lar la-star" name="stars" data-value="5"></i>
                 </div>
                 <input type="hidden" name="note" id="note" value="0">
-                <button type="submit" name="submitNote">Valider</button>
+                <button class="btnNote" type="submit" name="submitNote">Valider</button>
             </form>
         <?php } ?>
     </div>
@@ -78,6 +78,10 @@
     }
 }
     ?>
+<?php //$noteV->moyenne ?>
+<?php 
+
+round($noteV->moyenne) ?>
 
 <script>
  var variableRecuperee = <?php echo json_encode($noteV); ?>;

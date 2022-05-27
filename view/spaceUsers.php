@@ -15,17 +15,14 @@
                 <?php }
                 }else{ ?>
 
-<h1 class="titleSpaceUser"><?= $classUser->mail ?></h1>
 
 
 <div class="containerViewUser">
     <div>
-        <!--<img class="avatar" src="./assets/media/fff.jpg" width="350px">-->
         <img class="avatar" src="./avatar/<?= $classUser->avatar ?>" width="350px" >
     </div>
     
     <div class="vieuwDescUser">
-        <p class="viewP"><strong>utilisateur:</strong> <?= $classUser->id ?></p>
         <p class="viewP"><strong>Pseudo:</strong> <?= $classUser->pseudo ?></p>
         <p class="viewP"><strong>Adresse email:</strong> <?= $classUser->mail ?></p>
     </div>
@@ -40,11 +37,12 @@
         <div class="inputs">
             <input type="email" value="<?= $classUser->mail?>" name="mail" />
             <input type="text" value="<?= $classUser->pseudo?>" name="pseudo" />
+            <label>Avatar</label>
             <input type="file" name="fileAvatars" /><br>
         </div>
         
         <div align="center">
-            <button type="submit" name="submitModif" value="<?= $user->id?>">Modifier</button>
+            <button type="submit" name="submitModifUser" value="<?= $user->id?>">Modifier</button>
             <button type="submit" name="submitDelet" value="<?= $user->id?>">supprimer</button>
         </div>
     </form>

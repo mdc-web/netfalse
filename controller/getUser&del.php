@@ -8,7 +8,7 @@ $classUser = $user->getUserByid();
 $listUser = $user->getUser();
 
 
-if (isset($_POST['submitModif'])) {
+if (isset($_POST['submitModifUser'])) {
     //relié au model.php avec (class user extends)
    $formError = [];
    $formSucess = [];
