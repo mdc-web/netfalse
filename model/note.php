@@ -1,4 +1,5 @@
 <?php
+//DECLARATION DE LA CLASS ET DES ATTRIBUS
 class note extends database
 {
     public $note;
@@ -11,8 +12,7 @@ class note extends database
     {
         parent::__construct();
     }
-
-
+//DECLARATION DES METHODES
     public function insertNote()
     {
         $requete = 'INSERT INTO `note`(`note`, `user_id`, `item_id`) VALUES (:note, :user_id, :item_id);';

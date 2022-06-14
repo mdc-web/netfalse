@@ -1,4 +1,5 @@
 <?php
+//DECLARATION DE LA CLASS ET DES ATTRIBUS
 class item extends database
 {
     public $titre;
@@ -8,13 +9,11 @@ class item extends database
     public $nom;
     public $id;
 
-
     public function __construct()
     {
         parent::__construct();
     }
-
-
+//DECLARATION DES METHODES
     public function createItem()
     {
         $req = 'INSERT INTO `item`(`titre`, `categorie`, `duration`, `description`, `nom`) VALUES (:titre, :categorie, :duration, :description, :nom);';
@@ -27,14 +26,12 @@ class item extends database
         return $insertItem->execute();
     }
 
-
     public function getAllItem() 
     {
         $query = 'SELECT * FROM `item`';
         $item = $this->db->query($query);
         return $item->fetchAll(PDO::FETCH_OBJ);
     }
-
 
     public function getItemById()
     {
@@ -45,23 +42,19 @@ class item extends database
         return $item->fetch(PDO::FETCH_OBJ);
     }
 
-
     public function getItemByCatAct()
     {
         $query = 'SELECT * FROM item WHERE categorie = "action" ;';
         $item = $this->db->prepare($query);
         $item->execute();
         return $item->fetchAll(PDO::FETCH_OBJ);
-        
     }
 
-    public function getItemByCatHist()
-    {
+    public function getItemByCatHist(){
         $query = 'SELECT * FROM item WHERE categorie = "histoire" ;';
         $item = $this->db->prepare($query);
         $item->execute();
         return $item->fetchAll(PDO::FETCH_OBJ);
-        
     }
 
     public function getItemByCatSyfy()
@@ -69,8 +62,7 @@ class item extends database
         $query = 'SELECT * FROM item WHERE categorie = "syfy" ;';
         $item = $this->db->prepare($query);
         $item->execute();
-        return $item->fetchAll(PDO::FETCH_OBJ);
-        
+        return $item->fetchAll(PDO::FETCH_OBJ);   
     }
 
     public function getItemByCatAnime()
@@ -79,7 +71,6 @@ class item extends database
         $item = $this->db->prepare($query);
         $item->execute();
         return $item->fetchAll(PDO::FETCH_OBJ);
-        
     }
 
 
@@ -107,7 +98,7 @@ class item extends database
 
     public function getRandItem() 
     {
-        $query = 'SELECT * FROM `item` ORDER BY RAND();';
+        $query = 'SELECT  AVG(note) AS moyenne , item_id ,nom , item.id FROM `note` INNER JOIN item WHERE item.id = note.item_id GROUP BY item_id ORDER BY moyenne DESC;';
         $item = $this->db->query($query);
         return $item->fetchAll(PDO::FETCH_OBJ);
     }
@@ -119,15 +110,4 @@ class item extends database
         $item->execute(array("%".$recherche."%"));
         return $item->fetchAll(PDO::FETCH_OBJ);
     }
-
-
-/*
-    public function numberPage(){
-        $req = 'SELECT COUNT(id)/4 AS numberPage FROM item;';
-        $item = $this->db->prepare($req);
-        if($item->execute()){
-        return $item->fetch(PDO::FETCH_OBJ);
-    }
-    }
-    */
 }

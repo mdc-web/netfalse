@@ -1,4 +1,5 @@
 <?php
+//DECLARATION DE LA CLASS ET DES ATTRIBUS
 class user extends database
 {
     public $mail;
@@ -7,21 +8,16 @@ class user extends database
     public $avatar;
 
 
-
-    // method __construct qui se connect a ma database
-
     public function __construct()
     {
         parent::__construct();
     }
-
-    // method qui sert a aller recuperer mes donnees dans la database
-
+//DECLARATION DES METHODES
     public function insertUser()
     {
         $requete = 'INSERT INTO `user`(`mail`, `mdp`, `pseudo`, `avatar`) VALUES (:mail , :mdp, :pseudo, :avatar)';
         $insert = $this->db->prepare($requete);
-        $insert->bindValue(':mail', $this->mail, PDO::PARAM_STR);  // string(mot/phrase)
+        $insert->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $insert->bindValue(':mdp', $this->mdp, PDO::PARAM_STR);
         $insert->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
         $insert->bindValue(':avatar', $this->avatar, PDO::PARAM_STR);

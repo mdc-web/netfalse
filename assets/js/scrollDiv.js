@@ -1,9 +1,7 @@
-
-  const slider = document.querySelector('.items');
+for (const slider of document.querySelectorAll('.items')){
 let isDown = false;
 let startX;
 let scrollLeft;
-
 slider.addEventListener('mousedown', (e) => {
 isDown = true;
 slider.classList.add('active');
@@ -24,5 +22,5 @@ e.preventDefault();
 const x = e.pageX - slider.offsetLeft;
 const walk = (x - startX) * 3; //scroll-fast
 slider.scrollLeft = scrollLeft - walk;
-console.log(walk);
 });
+}
