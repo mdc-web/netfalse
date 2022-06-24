@@ -46,7 +46,7 @@
             <label for="file">duration</label>
             <input type="number" name="duration" value="<?= $itemId->duration?>"><br>
             <label for="file">description</label>
-            <textarea name="description"><?= $itemId->description?>Description ...</textarea><br>
+            <textarea name="description"><?= $itemId->description?></textarea><br>
             <label for="file">Fichier</label>
             <input type="file" name="file" value="<?= $itemId->name?>"><br><br>
         </div>

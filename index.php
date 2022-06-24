@@ -25,12 +25,12 @@ include 'model/note.php';
         <div class="overlay-menu-mobile" onclick="closeMenuMobile()"></div>
         <nav>
             <div class="left">
-                <a href="index.php?home" class="logo"><img src="./assets/media/logoNetfalse (300 × 100 px).svg"></a>
+                <a href="index.php?home" class="logo"><img src="./assets/media/logoNetfalse (300 × 100 px).svg" class="logoImg"></a>
             </div> 
 
             <div class="nav-burger">
                 <div class="menu-burger-close" onclick="closeMenuMobile()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" id="test" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </div>
@@ -133,7 +133,7 @@ include 'model/note.php';
         </main>
 <!------FOOTER------>
         <footer>
-            <p>&copy Netfalse 2022</p>
+            <p>&copy Netfalse 2022 Projet d'examen</p>
             <p>Edit by <a href="https://www.mdc-web.fr/">mdc web</a></p>
         </footer>
 

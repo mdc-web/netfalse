@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {//RECUPERATION DE LA SOUMISSION DU FORMULAIRE
             move_uploaded_file($tmpName, './assets/media/avatar/'.$avatar);
         }
         else{
-            echo "Une erreur est survenue";
+            
         }
     } else {
         echo $formError['mail'] = "mail non validée! <br>";
@@ -38,10 +38,23 @@ if (isset($_POST['submit'])) {//RECUPERATION DE LA SOUMISSION DU FORMULAIRE
     }
     if (empty($formError)) {
         $user->mail = $mail;//ATTRIBUTION DES DONNÉES A L'OBJET
-        $user->mdp = $mdp;
         $user->pseudo = $pseudo;
-        $user->avatar = $avatar;
-        $user->insertUser();//APPEL DE LA PUBLIC FUNCTION CREATE
-        header('location:index.php?connexion');
+        $verifuser = $user->verifuser();
+        if(is_object($verifuser)){
+            if ($verifuser->pseudo === $pseudo && $verifuser->mail === $mail ){
+                $errorLogForm = "vous avez deja un compte chez nous";
+            }else if($verifuser->pseudo === $pseudo){
+                $errorLogForm = "le pseudo existe deja";
+            }else if($verifuser->mail === $mail){
+              $errorLogForm = "l'email existe deja";
+            }
+          }else {
+            $user->mdp = $mdp;
+            $user->avatar = $avatar;
+            $user->insertUser();//APPEL DE LA PUBLIC FUNCTION CREATE
+            header('location:index.php?connexion');
+          }
+
+        
     }
 }

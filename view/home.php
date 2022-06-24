@@ -11,9 +11,10 @@
         <?php } ?>
     </div>
 <?php } else { ?> 
-<h1 class="title1Home">Populaires sur Netfalse</h1>
+
 <!------SECTION NETFALSE------>
 <!------SLIDER------>
+<h1 class="title1Home">Populaires sur Netfalse</h1>
 <div class="swiper mySwiper">
     <div class="swiper-wrapper">
 <?php

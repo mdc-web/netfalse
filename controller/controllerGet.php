@@ -20,7 +20,7 @@ if(isset($_GET['idItem'])){//RECUPERATION DE L'ITEM PAR ID VIA LA METHODE GET
     $_SESSION['idItem'] =  $itemId->id;//???
 }
 
-if(isset($_POST['submitModif'])){ //CONDITION DE MODIFICATION DONNÉES USERS
+if(isset($_POST['submitModif'])){ //CONDITION DE MODIFICATION DONNÉES ITEMS
     if(!empty($_POST['titre']) && !empty($_POST['categorie']) && !empty($_POST['duration']) && !empty($_POST['description']) && !empty($_FILES['file']) && !empty($_GET['idItem'])){
 //RECUPERATION DES DONNÉES SOUMISE VIA LE FORMULAIRE
 //GESTION DE L'ARRAY DU FILE
@@ -47,8 +47,18 @@ if(isset($_POST['submitModif'])){ //CONDITION DE MODIFICATION DONNÉES USERS
             $classItem->description=$_POST['description'];
             $classItem->id = $_GET['idItem'];
             $classItem->nom=$nom;
+        } /*else if (!empty($_POST['titre']) && !empty($_POST['categorie']) && !empty($_POST['duration']) && !empty($_POST['description']) && empty($_FILES['file']) && !empty($_GET['idItem'])){
+            
+            $nom = ('./upload/'.$nom);
+            
+            $classItem->titre=$_POST['titre'];
+            $classItem->categorie=$_POST['categorie'];
+            $classItem->duration=$_POST['duration'];
+            $classItem->description=$_POST['description'];
+            $classItem->id = $_GET['idItem'];
+            $classItem->nom=$nom;
         }
-        else{
+        */else{
             echo "Une erreur est survenue";
         }
     }

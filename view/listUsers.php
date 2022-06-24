@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION['id']) &&  $_SESSION['role'] === "admin" ){
 //CONDITION DE RECHERCHE
 //BOUCLE DANS UNE DIV POUR AFFICHER LE RETOUR D UNE FONCTION STOCKÉ DANS LA VARIABLE DEFINIE DANS LE CONTROLEUR
  if(isset($searchV) && !empty($searchV)){ ?>
@@ -41,4 +42,7 @@
     }
     ?>
   </table>
-  <?php } ?>
+  <?php } 
+  }else{
+    header('location:index.php?home');
+}?>

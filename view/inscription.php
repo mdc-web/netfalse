@@ -29,6 +29,10 @@
     <input type="file" name="fileAvatar"><br>
   </div>
   <div align="center">
+  <?php 
+          if (isset($errorLogForm)){?>
+             <p class="ecoForm"> <?= $errorLogForm; ?> </p>
+        <?php  } ?>
     <button type="submit" name="submit">créer compte</button>
   </div>
 </form>

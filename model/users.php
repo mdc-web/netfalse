@@ -66,4 +66,13 @@ class user extends database
         return $selectuser->fetch(PDO::FETCH_OBJ);
     }
 
+    public function verifuser(){
+        $query = 'SELECT pseudo , mail FROM user WHERE pseudo = :pseudo OR mail = :mail';
+        $users = $this->db->prepare($query);
+        $users->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $users->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $users->execute();
+        return $users->fetch(PDO::FETCH_OBJ);
+    }
+
 }

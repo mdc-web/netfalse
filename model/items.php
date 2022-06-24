@@ -16,9 +16,9 @@ class item extends database
 //DECLARATION DES METHODES
     public function createItem()
     {
-        $req = 'INSERT INTO `item`(`titre`, `categorie`, `duration`, `description`, `nom`) VALUES (:titre, :categorie, :duration, :description, :nom);';
-        $insertItem = $this->db->prepare($req);
-        $insertItem->bindValue(':titre', $this->titre, PDO::PARAM_STR);
+        $req = 'INSERT INTO `item`(`titre`, `categorie`, `duration`, `description`, `nom`) VALUES (:titre, :categorie, :duration, :description, :nom);';//INSERTION DE LA REQUETTE SQL
+        $insertItem = $this->db->prepare($req);//APPEL DE LA REQUETTE SQL
+        $insertItem->bindValue(':titre', $this->titre, PDO::PARAM_STR);//VERIFICATION DES VALEURS AVEC BINDVALUE
         $insertItem->bindValue(':categorie', $this->categorie, PDO::PARAM_STR);
         $insertItem->bindValue(':duration', $this->duration, PDO::PARAM_INT);
         $insertItem->bindValue(':description', $this->description, PDO::PARAM_STR);
